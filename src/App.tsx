@@ -155,9 +155,13 @@ const createSliderSx = (sliderHandleSrc: string) => ({
 });
 
 const switchSx = {
-  width: 36,
-  height: 20,
-  p: 0,
+  // Keep custom sizing stable against design-system mobile MuiSwitch overrides.
+  '&&': {
+    width: 36,
+    height: 20,
+    p: 0,
+  },
+  flexShrink: 0,
   '& .MuiSwitch-switchBase': {
     p: 0,
     m: '2px',
@@ -173,12 +177,27 @@ const switchSx = {
   '& .MuiSwitch-thumb': {
     width: 16,
     height: 16,
+    backgroundColor: '#fff',
+    boxSizing: 'border-box',
     boxShadow: 'none',
   },
   '& .MuiSwitch-track': {
     borderRadius: 16,
     backgroundColor: 'rgba(112,128,144,0.6)',
     opacity: 1,
+  },
+  '@media (max-width: 640px)': {
+    '&&': {
+      width: 36,
+      height: 20,
+    },
+    '& .MuiSwitch-switchBase.Mui-checked': {
+      transform: 'translateX(16px)',
+    },
+    '& .MuiSwitch-thumb': {
+      width: 16,
+      height: 16,
+    },
   },
 };
 
