@@ -91,8 +91,8 @@ const purchasePriceFieldSx = {
       borderColor: '#c4c4c4',
     },
   },
-  '& .MuiInputAdornment-root': {
-    marginRight: '8px',
+  '& .MuiInputAdornment-positionStart': {
+    marginRight: '8px !important',
   },
   '& .MuiInputBase-input': {
     ...fieldSx['& .MuiInputBase-input'],
@@ -100,6 +100,9 @@ const purchasePriceFieldSx = {
     fontSize: 16,
     lineHeight: '24px',
     letterSpacing: 0,
+  },
+  '& .MuiInputBase-input.MuiInputBase-inputAdornedStart': {
+    paddingLeft: 0,
   },
 };
 
@@ -113,7 +116,7 @@ const breakdownCardSx = {
   boxShadow: '0 4px 32px rgba(140,140,140,0.24)',
 };
 
-const sliderSx = {
+const createSliderSx = (sliderHandleSrc: string) => ({
   p: 0,
   color: '#22222d',
   '& .MuiSlider-rail': {
@@ -140,7 +143,7 @@ const sliderSx = {
       width: 20,
       height: 20,
       display: 'block',
-      backgroundImage: 'url(/slider-handle-inner.svg)',
+      backgroundImage: `url(${sliderHandleSrc})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'contain',
@@ -149,7 +152,7 @@ const sliderSx = {
       boxShadow: '0 4px 32px rgba(140,140,140,0.24)',
     },
   },
-};
+});
 
 const switchSx = {
   width: 36,
@@ -182,6 +185,9 @@ const switchSx = {
 const money = (value: number) => `$${new Intl.NumberFormat('en-US').format(Math.round(value))}`;
 
 function App() {
+  const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const assetSrc = (path: string) => `${assetBasePath}${path}`;
+  const sliderSx = createSliderSx(assetSrc('/slider-handle-inner.svg'));
   const [form, setForm] = useState<FormState>(buildDefaultForm);
   const [isBreakdownUnlocked, setIsBreakdownUnlocked] = useState(false);
   const [showRequiredErrors, setShowRequiredErrors] = useState(false);
@@ -295,7 +301,7 @@ function App() {
       <Box sx={{ maxWidth: 1440, mx: 'auto', pt: { xs: 3, sm: 4, md: 5 }, pb: { xs: 5, sm: 6, md: 8 }, px: { xs: 2, sm: 3, md: 0 } }}>
         <Box
           component="img"
-          src="/Logo.svg"
+          src={assetSrc('/Logo.svg')}
           alt="YachtWay"
           sx={{
             width: { xs: 132, sm: '169.505px' },
@@ -480,7 +486,7 @@ function App() {
                         >
                           <Box
                             component="img"
-                            src="/minus_outline.svg"
+                            src={assetSrc('/minus_outline.svg')}
                             alt=""
                             aria-hidden
                             sx={{
@@ -517,7 +523,7 @@ function App() {
                         >
                           <Box
                             component="img"
-                            src="/plus_outline.svg"
+                            src={assetSrc('/plus_outline.svg')}
                             alt=""
                             aria-hidden
                             sx={{
@@ -850,7 +856,7 @@ function App() {
                     <Stack spacing={1.5} sx={{ width: '100%', alignItems: 'center' }}>
                       <Box
                         component="img"
-                        src="/lock-close_solid.svg"
+                        src={assetSrc('/lock-close_solid.svg')}
                         alt="Locked"
                         sx={{
                           width: 48,
