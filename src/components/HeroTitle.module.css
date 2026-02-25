@@ -1,0 +1,69 @@
+.heroSection {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 778px;
+  text-align: center;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: clamp(3rem, 7.4vw, 5.25rem);
+  letter-spacing: 0;
+  color: #000;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+}
+
+.lineInner {
+  display: block;
+  transform: translateY(115%);
+  transition-property: transform;
+  transition-duration: 1200ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0ms;
+  will-change: transform;
+}
+
+.isRevealed .lineInner {
+  transform: translateY(0);
+}
+
+.lineDelay0 {
+  transition-delay: 0ms;
+}
+
+.lineDelay120 {
+  transition-delay: 120ms;
+}
+
+.lineDelay320 {
+  transition-delay: 320ms;
+}
+
+.subtitle {
+  margin: clamp(0.5rem, 1.2vw, 1rem) 0 0;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: clamp(1.5rem, 2.6vw, 1.75rem);
+  color: #4e4e57;
+}
+
+@media (max-width: 639.95px) {
+  .lineInner {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lineInner {
+    transform: none;
+    transition: none;
+  }
+}

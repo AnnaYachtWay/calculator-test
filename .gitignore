@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Dependencies
+node_modules/
+backup_node_modules_bad_old/
+backup_node_modules_node16_old/
+
+# Build output
+.next/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# Misc artifacts
+*.zip

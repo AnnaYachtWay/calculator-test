@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "commonjs",
+    "outDir": ".",
+    "declarationDir": ".",
+    "declaration": true,
+    "noEmit": false,
+    "emitDeclarationOnly": false
+  },
+  "include": ["index.ts"],
+  "exclude": []
+}

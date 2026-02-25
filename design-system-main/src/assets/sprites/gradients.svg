@@ -1,0 +1,35 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;"
+    version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Hacky: Since SVGO minifies IDs in the order in which they are first
+    referenced and we can't turn minification off, we need to ensure the
+    order of gradients is consistent. Also, for some reason, SVGO doesn't 
+    even preserve these gradients though they are used in the app -->
+  <rect fill="url(#accent)"></rect>
+  <rect fill="url(#accent_animate)"></rect>
+  <rect fill="url(#gold)"></rect>
+  <defs>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(131,52,218);stop-opacity:1.00" />
+      <stop offset="100%" style="stop-color:rgb(68,9,215);stop-opacity:1.00" />
+    </linearGradient>
+    <linearGradient id="accent_animate" x1="-0.1" y1="0" x2="1.1" y2="1"
+         style="animation-play-state: running; animation-delay: 0s;">
+        <animate attributeName="y2" repeatCount="indefinite" dur="3.846153846153846s"
+          keyTimes="0;0.5;1" values="-0.51;0.51;-0.51" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"
+          calcMode="spline" style="animation-play-state: running; animation-delay: 0s;" />
+        <stop stop-color="#8729fa" offset="0"
+          style="animation-play-state: running; animation-delay: 0s;" />
+        <stop stop-color="#2b0075" offset="1"
+          style="animation-play-state: running; animation-delay: 0s;" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(94)">
+      <stop offset="0%" style="stop-color:#F9BC2E;stop-opacity:1" />
+      <stop offset="13.29%" style="stop-color:#E29A1E;stop-opacity:1" />
+      <stop offset="30.34%" style="stop-color:#FFCD38;stop-opacity:1" />
+      <stop offset="73.17%" style="stop-color:#F0AF30;stop-opacity:1" />
+      <stop offset="83.8%" style="stop-color:#E29A1E;stop-opacity:1" />
+      <stop offset="96.43%" style="stop-color:#FFCD38;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DD931A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
